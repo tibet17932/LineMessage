@@ -7,7 +7,7 @@ const port = process.env.PORT || 4000
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-function reply(reply_token) {
+function reply(reply_token, msg) {
     let headers = {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer {' + reply_token + '}'
@@ -15,14 +15,9 @@ function reply(reply_token) {
     let body = JSON.stringify({
         replyToken: reply_token,
         messages: [{
-                type: 'text',
-                text: 'Hello'
-            },
-            {
-                type: 'text',
-                text: 'How are you?'
-            }
-        ]
+            type: 'text',
+            text: msg
+        }]
     })
     request.post({
         url: 'https://api.line.me/v2/bot/message/reply',
@@ -34,7 +29,8 @@ function reply(reply_token) {
 }
 
 app.post('/webhook', (req, res) => {
-    reply('qAVj2qs962bjNUi/E+OL0jCSCga9/SqZ+t1ut91/TgNjiHVGRlT+w3cz0wz6QADyqv/xErRQ64Jy4EADFHDSTbgfYSonU68ILNFuZCOR1qozv9Fse4ooawDZBGDCLLQnBax6O3JS8/ZIXtJHUMudsAdB04t89/1O/w1cDnyilFU=')
+    let msg = req.body.msg
+    reply('qAVj2qs962bjNUi/E+OL0jCSCga9/SqZ+t1ut91/TgNjiHVGRlT+w3cz0wz6QADyqv/xErRQ64Jy4EADFHDSTbgfYSonU68ILNFuZCOR1qozv9Fse4ooawDZBGDCLLQnBax6O3JS8/ZIXtJHUMudsAdB04t89/1O/w1cDnyilFU=', msg)
     res.sendStatus(200)
 })
 
