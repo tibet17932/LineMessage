@@ -31,7 +31,7 @@ function reply(reply_token, msg) {
 app.post('/webhook', (req, res) => {
     let msg = req.body.msg
     reply('qAVj2qs962bjNUi/E+OL0jCSCga9/SqZ+t1ut91/TgNjiHVGRlT+w3cz0wz6QADyqv/xErRQ64Jy4EADFHDSTbgfYSonU68ILNFuZCOR1qozv9Fse4ooawDZBGDCLLQnBax6O3JS8/ZIXtJHUMudsAdB04t89/1O/w1cDnyilFU=', msg)
-    res.sendStatus(200)
+    res.send(msg);
 })
 
 
