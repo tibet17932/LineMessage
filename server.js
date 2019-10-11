@@ -21,6 +21,7 @@ function reply(reply_token) {
     })
     request.post({
         url: 'https://api.line.me/v2/bot/message/reply',
+        headers: headers,
         body: body
     }, (err, res, body) => {
         console.log('status = ' + res.statusCode);
