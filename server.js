@@ -9,7 +9,7 @@ app.use(bodyParser.json())
 function reply(reply_token, msg) {
     let headers = {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer {zaClGiD+ZEgcNeom4G6Vl/Acd1B6IjNnSwGJC5bDdl4ZjPxC00V9iTkqNRswf52Mqv/xErRQ64Jy4EADFHDSTbgfYSonU68ILNFuZCOR1qrp/cFE1qEjYvJNP9sYLksUcZjfL5lPI/TSM0/JvP1+nQdB04t89/1O/w1cDnyilFU=}'
+        'Authorization': 'Bearer {w4DcNlL1YqT9PbfuENYal06qUPPh+6FjL5oZYoj8cDtp8PHGYAxvJT+jGeCgfMImqv/xErRQ64Jy4EADFHDSTbgfYSonU68ILNFuZCOR1qrTNxl1wRciu3gafHAOdSrKK6t50REXGH8UQW0QGdFLuAdB04t89/1O/w1cDnyilFU=}'
     }
     let body = JSON.stringify({
         replyToken: reply_token,
